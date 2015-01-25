@@ -40,7 +40,7 @@
 \item	Die (and respawn?) \textit{(law)}
 \item	Hit a monster \textit{(law)} %Can probably just combine with attacking, right?
 \item	Kill a monster \textit{(law)}
-\item	Open a door (and close it) \textit{(law)}
+\item	Open a door (and close it) \textit{(law)} %Ronnie Rodriguez
 \item	Enter a dungeon \textit{(law)} %Tessa Saul
 \item	Leave a dungeon \textit{(law)} %Made this its own section - Ronnie
 \item	Level up \textit{(law)}
@@ -80,7 +80,8 @@ Steps:
 3. The player is moved from the current location to the new location.
 4. The new level is constructed (if a dungeon), or loaded (if the lobby) and the player is placed in it.
 ------------------
-crafting items % Morgan Holbart
+
+Crafting Items % Morgan Holbart
 
 Actor: Player
 
@@ -94,7 +95,8 @@ Steps:
 3. The items for the recipe are destroyed
 4. The crafted item is placed in the player's inventory
 ------------------
-selling items % Tessa Saul 
+
+Selling Items % Tessa Saul 
 
 Actor: Shopkeeper and player
 
@@ -109,7 +111,8 @@ Steps:
 3. Player selects item from their inventory to sell
 4. Item is given to shopkeeper, currency is taken from shopkeeper and given to player
 ------------------
-buying items % Tessa Saul 
+
+Buying Items % Tessa Saul 
 
 Actor: Shopkeeper and player
 
@@ -124,7 +127,8 @@ Steps:
 3. Player selects item from shopkeeper's inventory to buy
 4. Item is given to player, currency is taken from player and given to shopkeeper
 ------------------
-picking up items % Tessa Saul 
+
+Picking Up Items % Tessa Saul 
 
 Actor: Player
 
@@ -138,7 +142,8 @@ Steps:
 3. Item is removed from environment
 4. Item is placed in the player's  inventory
 ------------------
-dialog % Morgan Holbart
+
+Dialog % Morgan Holbart
 
 Actors: Player and NPC
 
@@ -155,7 +160,8 @@ Steps:
 3. The player can respond based on user input
 4. When the NPC runs out of things to say, the dialog ends
 ------------------
-attacking % Morgan Holbart
+
+Attacking % Morgan Holbart
 
 Actor: Player
 
@@ -169,7 +175,8 @@ Steps:
 2. Ammunition/Durability is subtracted
 3. The weapon animation/effects/etc are instantiated
 ------------------
-opening doors %Ronnie Rodriguez
+
+Opening Doors %Ronnie Rodriguez
 
 Actor: Player
 
@@ -184,7 +191,8 @@ Steps:
 3. If door is unlocked, door opens and player is granted access to the area on the other side.
 4. If door is locked, a "locked" or "Need Key" prompt is output to the screen.
 ------------------
-opening inventory/closing inventory % Morgan Holbart
+
+Opening/Closing Inventory % Morgan Holbart
 
 Actor: Player
 
@@ -195,7 +203,8 @@ Steps:
 1. The player presses the input to open/close the inventory
 2. The inventory is loaded and displayed or closed 
 ------------------
-starting game % Morgan Holbart
+
+Starting Game % Morgan Holbart
 
 Actor: User
 
@@ -208,7 +217,8 @@ Steps:
 2. The game loads the user save data
 3. The game loads the lobby level with regard to the user save data
 ------------------
-Reload Weapon? % Morgan Holbart
+
+Reload Weapon % Morgan Holbart
 
 Actor: Player
 
@@ -221,6 +231,7 @@ Steps:
 2. Subtract ammo from the stored ammo
 3. Add the subtracted ammo to the current ammo
 -----------------
+
 Start Dungeon % Morgan Holbart
 
 Actor : Dungeon Leader(Player)
