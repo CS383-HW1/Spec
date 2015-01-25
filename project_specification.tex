@@ -37,7 +37,7 @@
 \item	Move items in inventory \textit{(law)}
 \item	Look at stats (merge w/ open inventory?) \textit{(law)}
 \item	Look at map \textit{(law)}
-\item	Take damage \textit{(law)}
+\item	Take damage \textit{(law)} %Ronnie Rodriguez
 \item	Die (and respawn?) \textit{(law)}
 \item	Hit a monster \textit{(law)} %Can probably just combine with attacking, right?
 \item	Kill a monster \textit{(law)}
@@ -270,7 +270,7 @@ Steps:
 
 \textbf{Killing an Enemy} %Ronnie Rodriguez
 
-Actor: Player
+Actor: Player, Enemy
 
 Preconditions:
 1. Player is able to attack enemy
@@ -283,6 +283,7 @@ Steps:
 1. Player gets close enough to enemy to attack either ranged or melee
 2. Player depletes enemy's hit points before player's hit points are depleted by enemy
 3. Enemy ceases attacking and enemy death animation is instantiated.
+----------------
 
 \textbf{Using Keys/Codes} %Ronnie Rodriguez
 
@@ -292,6 +293,8 @@ Preconditions:
 1. A door the player wishes to go through is currently locked
 2. Player has needed key/code to unlock door in inventory
 
+Summary: Player uses found keys or codes to unlock locked doors.
+
 Steps:
 1. Player gets close enough to door to interact with it
 2. Player presses input to initialize unlocking procedure
@@ -300,6 +303,24 @@ Steps:
 5. If player chooses no, prompt closes, door remains locked, and key/code remains in inventory
 6. If player chooses yes, "Door Unlocked" prompt displays to screen, door unlocks, and key/code is removed from inventory
 7. Player initiates Open Door procedure (see above)
+----------------
+
+\textbf{Taking Damage} %Ronnie Rodriguez
+
+Actor: Player
+
+Preconditions:
+1. Player is being attacked by enemy
+2. Player has a low enough armor rating to where they are able to be damaged by current enemy
+
+Summary: Player is being attacked and is losing health/HP
+
+Steps:
+1. Player is attacked by enemy
+2. Depending on strength of enemy, an amount of damage is done to the player
+3. Amount of hit points directly related to amount of damage done by enemy is subtracted from the player's total remaining health.
+
+
 
 \end{section}
 
