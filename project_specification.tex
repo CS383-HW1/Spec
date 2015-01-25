@@ -376,6 +376,93 @@ Steps:
 4. Stat alteration actions are deactivated or activated depending on status point availability.
 ------------------
 
+\textbf{Look at map} %Zachary Yama
+
+Actor: Player
+
+Precondition:
+1. The player toggles the map menu icon.
+
+Summary: Input form the player opens the map menu.
+
+Steps:
+1. The player selects the map menu icon.
+2. The map menu is opened.
+3. Player coordinates are set as a map rendering position.
+4. The surrounding level content is loaded into the map.
+5. Explored content is displayed.
+------------------
+
+\textbf{Hit a monster} %Zachary Yama
+
+Actor: Player, Monster
+
+Precondition:
+1. The player has attacked.
+2. The player's attack hitbox hit a monster.
+
+Summary: A player has performed the action to attack, and successfully hit an enemy.
+
+Steps:
+1. Calculate active collisions to determine if the enemy was hit.
+2. The damage delt is calculated based on player and monster attributes.
+3. Damage is deducted from the monster's health. 
+4. Any elemental or otherwise behavior altering elements are applied to the monster.
+5. If the monster's health is zero, the monster's status is changed to dead.
+------------------
+
+\textbf{Kill a monster} %Zachary Yama
+
+Actor: Player, Monster
+
+Precondition:
+1. The player has reduced a monster's health to zero.
+
+Summary: A monsters health has been reduced to zero, and is dead.
+
+Steps:
+1. The monster's hitbox is no longer active.
+2. Any active AI is no longer active.
+3. A death animation is played.
+4. The displayed sprite is changed to represent a dead enemy.
+5. The status of the enemy is set to dead, and any ressurection elements are set to applicable.
+6. The enemy is determined to be permanatly dead.
+7. Any items to drop are generated.
+8. The item is instanciated and dropped.
+------------------
+
+\textbf{Level up} %Zachary Yama
+
+Actor: Player
+
+Precondition:
+1. The player has the required experience (Reputation?) to level up.
+
+Summary: A player has gained enough experience to increase their level. 
+
+Steps:
+1. The experience level is compared to the amount required to level up. 
+2. If the experience level is high enough, the player's level is increased by 1.
+3. Usable stats points are awarded to the stats class. 
+4. The expereince bar size is recalculated.
+5. The current amount of experience is reduced to zero plus any additional experience carryover.
+6. A levelup indicator is displayed.
+7. Health is regenerated?
+------------------
+
+\textbf{Increase Stats} %Zachary Yama
+
+Actor: Player
+
+Precondition:
+1. The player has available status points to spend.
+
+Summary: A player has unspent stats points and expends them. 
+
+Steps:
+1. The player 
+------------------
+
 \end{section}
 
 \end{document}
