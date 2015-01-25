@@ -341,11 +341,13 @@ Steps:
 8. If selected inventory slot is occupied, selected item will swap places with item in occupied slot. 
 ----------------
 
-\textbf{Equipping an Item} %Zachary Yama
+\textbf{Equip an Item} %Zachary Yama
 
 Actor: Player
 
-Precondition: The player has the status to equip the item and the item is in their inventory.
+Precondition: 
+1. The player has the status to equip the item. 
+2. The item is in their inventory.
 
 Summary: A player's action transfers an item from their inventory to their equipment.
 
@@ -356,6 +358,22 @@ Steps:
 4. Item is placed in equipment.
 5. Item(s) currently in equipment occupying the spaces required to eqiup the new item are moved to inventory.
 6. If the item(s) being swapped out assume more inventory space then the player has, ignore/undue the equip action.
+------------------
+
+\textbf{Look at stats} %Zachary Yama - almost identical to "Open Inventory"
+
+Actor: Player
+
+Precondition:
+1. The player selects the status menu icon.
+
+Summary: Input from the player opens the status menu.
+
+Steps:
+1. Player selects stats menu icon.
+2. The status window is opened.
+3. Status information is read and loaded into the window.
+4. Stat alteration actions are deactivated or activated depending on status point availability.
 ------------------
 
 \end{section}
