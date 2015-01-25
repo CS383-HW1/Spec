@@ -37,9 +37,66 @@
 \item	Look at stats (merge w/ open inventory?) \textit{(law)}
 \item	Look at map \textit{(law)}
 \item	Take damage \textit{(law)}
+\documentclass[12pt]{report}
+\usepackage{geometry}
+\usepackage{titling}
+
+\geometry{margin=1in}
+
+\newcommand{\subtitle}[1]{%
+	\posttitle{%
+		\par\end{center}
+		\begin{center}\large#1\end{center}
+		\vskip0.5em}%u
+
+\title{Project Specification}
+\subtitle{CS 383 - Homework 1 - Group 3}
+\author{Mason Fabel, Ronald Rodriguez, Lance Wells, Morgan Holbart, NAMES} % TODO: Everyone add your name to this list
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% TODO: Discuss document contents Friday
+% TODO: Assign sections to team members Friday
+
+\chapter{Tasks}
+
+\begin{section}{Temporary Tasks Section}
+
+\begin{itemize}
+\item	Movement (and movement blocking, e.g. a wall) \textit{(law)} %Tessa Saul
+\item	Attacking \textit{(law)} %Morgan Holbart
+\item	Reload Weapon \textit{(law)} %Morgan Holbart
+\item	Pick up item \textit{(law)} %Tessa Saul
+\item	Equip an item \textit{(law)}
+\item	Open inventory \textit{(law)} %Morgan Holbart
+\item	Move items in inventory \textit{(law)}
+\item	Look at stats (merge w/ open inventory?) \textit{(law)}
+\item	Look at map \textit{(law)}
+\item	Take damage \textit{(law)}
 \item	Die (and respawn?) \textit{(law)}
 \item	Hit a monster \textit{(law)} %Can probably just combine with attacking, right?
 \item	Kill a monster \textit{(law)}
+\item	Open a door (and close it) \textit{(law)} %Ronnie Rodriguez
+\item	Enter a dungeon \textit{(law)} %Tessa Saul
+\item	Leave a dungeon \textit{(law)} %Made this its own section - Ronnie
+\item	Level up \textit{(law)}
+\item	Use an item \textit{(law)}
+\item	Increase stats \textit{(law)}
+\item	Change current weapon (merge w/ equip an item?) \textit{(law)}
+\item	Start the game \textit{(law)} %Morgan Holbart
+\item	Close the game \textit{(law)}
+\item	Using Keys/Codes \textit{(law)} %Ronnie Rodriguez
+\item	Pick an item from the main menu \textit{(law)}
+\item	Crafting Items \textit{(law)} %Morgan Holbart
+\item	Selling Items \textit{(law)} %Tessa Saul
+\item	Buying Items \textit{(law)} %Tessa Saul
+\item	Initiating/Continuing Dialog \textit{(law)} %Morgan Holbart
+\item	Die (and respawn?) \textit{(law)}
+\item	Hit a monster \textit{(law)} %Can probably just combine with attacking, right?
+\item	Kill a monster \textit{(law)} %Ronnie Rodriguez
 \item	Open a door (and close it) \textit{(law)} %Ronnie Rodriguez
 \item	Enter a dungeon \textit{(law)} %Tessa Saul
 \item	Leave a dungeon \textit{(law)} %Made this its own section - Ronnie
@@ -256,7 +313,7 @@ Actor: Player
 Preconditions:
 1. Player is able to attack enemy
 2. The enemy has a low enough armor rating to where the player's attacks are damaging it
-2. Enemy can be killed.
+3. Enemy can be killed.
 
 Summary: Player attacks enemy with weapon until enemy's hit points are completely depleted.
 
@@ -264,6 +321,23 @@ Steps:
 1. Player gets close enough to enemy to attack either ranged or melee
 2. Player depletes enemy's hit points before player's hit points are depleted by enemy
 3. Enemy ceases attacking and enemy death animation is instantiated.
+
+\textbf{Using Keys/Codes} %Ronnie Rodriguez
+
+Actor: Player
+
+Preconditions:
+1. A door the player wishes to go through is currently locked
+2. Player has needed key/code to unlock door in inventory
+
+Steps:
+1. Player gets close enough to door to interact with it
+2. Player presses input to initialize unlocking procedure
+3. "Unlock door with key/code?" prompt is displayed on the screen along with Yes or No choice
+4. Player chooses yes or no option
+5. If player chooses no, prompt closes, door remains locked, and key/code remains in inventory
+6. If player chooses yes, "Door Unlocked" prompt displays to screen, door unlocks, and key/code is removed from inventory
+7. Player initiates Open Door procedure (see above)
 
 \end{section}
 
