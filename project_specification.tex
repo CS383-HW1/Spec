@@ -460,7 +460,13 @@ Precondition:
 Summary: A player has unspent stats points and expends them. 
 
 Steps:
-1. The player 
+1. The player selects a stat to increase.
+2. The amount of points required to increase a stat are calculated.
+3. If a stat requires more points than available, its increase action is deactivated.
+4. If there are enough points to expend, available stats points are reduced accordingly.
+5. The stat is increased. 
+6. Steps 1-5 are repeated for every action until all stats points are expened.
+7. Any remaining points are saved.
 ------------------
 
 \end{section}
