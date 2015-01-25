@@ -341,7 +341,22 @@ Steps:
 8. If selected inventory slot is occupied, selected item will swap places with item in occupied slot. 
 ----------------
 
+\textbf{Equipping an Item} %Zachary Yama
 
+Actor: Player
+
+Precondition: The player has the status to equip the item and the item is in their inventory.
+
+Summary: A player's action transfers an item from their inventory to their equipment.
+
+Steps:
+1. Player has the item.
+2. Player selects an equip action.
+3. Item is removed from inventory.
+4. Item is placed in equipment.
+5. Item(s) currently in equipment occupying the spaces required to eqiup the new item are moved to inventory.
+6. If the item(s) being swapped out assume more inventory space then the player has, ignore/undue the equip action.
+------------------
 
 \end{section}
 
