@@ -67,6 +67,121 @@
 \chapter{Use Cases}
 \begin {section}{Player Tasks}
 
+\textbf {Die} % Lance Wells
+
+Actor: Player
+
+Preconditions: The player is actively playing the game and has just taken fatal damage.
+
+Summary: The player has taken fatal damage and now proceeds to die with a restart option.
+
+Steps:
+1. The player takes some form of fatal damage.
+2. The player is then frozen on the spot, unable to interact with any surroundings.
+3. The player proceeds into a possible death animation for a few seconds.
+4. The player must then choose from a pop-up menu how they would like to proceed.
+------------------
+
+\textbf {Leave a Dungeon} % Lance Wells
+
+Actor: Player
+
+Preconditions: The player currently inside of a dungeon.
+
+Summary: The player leaves a dungeon through the use of a menu.
+
+Steps:
+1. The player presses a button that requests to leave the current dungeon.
+2. A confirmation window appears that prompts the player if they would like to proceed.
+3. If the player chooses to leave the dungeon (again), they will switch to the main lobby.
+4. If the player chooses to remain in the dungeon, the prompt window will close.
+------------------
+
+\textbf {Use an Item} % Lance Wells
+
+Actor: Player
+
+Preconditions: The player currently has some usable item.
+
+Summary: The player actively uses some usable item.
+
+Steps:
+1. The player either opens their inventory, or currently has a usable item equipped in some fashion.
+2. The player will indicate the specific item that they wish to use through some button combination or key press.
+3. The item then is removed from the player's inventory.
+4. The item's effect then occurs.
+------------------
+
+\textbf {Change current weapon} % Lance Wells
+
+Actor: Player
+
+Preconditions: The player currently has two or more selectable weapons.
+
+Summary: The player indicates a weapon to change and does so.
+
+Steps:
+1. The player either opens their inventory or currently has two or more "equipped" weapons.
+2. The player indicates a request as to which weapon to switch to through some key press.
+3. The player's active weapon is considered to no longer be active and potentially returned to their inventory.
+4. The player then either equips the newly indicated weapon or that new weapon is considered to be active.
+------------------
+
+\textbf {Close the game (in-game)} % Lance Wells
+
+Actor: Player
+
+Preconditions: The player has access to the menu that allows for the game to close.
+
+Summary: The player closes the game via an in-game menu option.
+
+Steps:
+1. The player indicates a request to leave via some button press.
+2. A pop-up window appears requesting the player to confirm that they would like to close the game.
+3. If the player should proceed, the program will (potentially) auto-save and then close entirely.
+------------------
+
+\textbf {Pick an item from the main menu} % Lance Wells
+
+Actor: Player
+
+Preconditions: The player is currently at the main menu.
+
+Summary: The player selects an option via some button press that reacts appropriately.
+
+Steps:
+1. The player is selects some menu option with a button press.
+2. The menu either then disappears and is replaced with another menu, or closes and reacts according to the user's request.
+------------------
+
+\textbf {Level Up} % Lance Wells
+
+Actor: Player
+
+Preconditions: The player has all requirements to achieve an increase in level and is currently in the lobby.
+
+Summary: The player moves (literally) up a level in progress.
+
+Steps:
+1. The player is informed through some message that they are now eligible for an advancement in their level.
+2. The player makes a request with some NPC that they would like to advance a level.
+3. The player's current reputation is now adjusted to mirror their current level.
+4. The player is physically adjusted up one level of the office building.
+
+------------------
+\textbf {Increase Stats} % Lance Wells
+
+Actor: Player
+
+Preconditions: The player has alterable stats that can be changed through some action.
+
+Summary: The player makes a request for a stat adjustment through some method and is altered in kind.
+
+Steps:
+1. The player makes a request to change stats through an item being equipped/unequipped or otherwise.
+2. The player's request is processed and the player's stats are changed to mirror the request.
+------------------
+
 \textbf {Moving Through Areas} % Tessa Saul 
 
 Actor: Player
