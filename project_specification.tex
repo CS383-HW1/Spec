@@ -34,7 +34,7 @@
 \item	Pick up item \textit{(law)} %Tessa Saul
 \item	Equip an item \textit{(law)}
 \item	Open inventory \textit{(law)} %Morgan Holbart
-\item	Move items in inventory \textit{(law)}
+\item	Move items in inventory \textit{(law)} %Ronnie Rodriguez
 \item	Look at stats (merge w/ open inventory?) \textit{(law)}
 \item	Look at map \textit{(law)}
 \item	Take damage \textit{(law)} %Ronnie Rodriguez
@@ -319,6 +319,27 @@ Steps:
 1. Player is attacked by enemy
 2. Depending on strength of enemy, an amount of damage is done to the player
 3. Amount of hit points directly related to amount of damage done by enemy is subtracted from the player's total remaining health.
+----------------
+
+\textbf{Moving Items in Inventory} %Ronnie Rodriguez
+
+Actor: Player
+
+Preconditions:
+1. Player has an item(s) in inventory they'd like to rearrange
+
+Summary: Player can manually rearrange items in inventory for better organization and quicker use.
+
+Steps:
+1. Player presses input to open inventory
+2. Game action is paused(?) while inventory is open
+3. Player selects "Rearrange" option from inventory sidebar
+4. Player presses input to select item they wish to move
+5. Item selected is highlighted
+6. Player navigates inventory and presses input to choose inventory slot they would like to move item to
+7. If selected inventory slot is empty, item is moved to that slot, original slot holding the item is now empty
+8. If selected inventory slot is occupied, selected item will swap places with item in occupied slot. 
+----------------
 
 
 
