@@ -27,27 +27,33 @@
 \begin{section}{Temporary Tasks Section}
 
 \begin{itemize}
-\item	Movement (and movement blocking, e.g. a wall) \textit{(law)}
-\item	Attack (Melee?) \textit{(law)}
-\item	Attack (Ranged?) \textit{(law)}
-\item	Pick up item \textit{(law)}
+\item	Movement (and movement blocking, e.g. a wall) \textit{(law)} %Tessa Saul
+\item	Attacking \textit{(law)} %Morgan Holbart
+\item	Reload Weapon \textit{(law)} %Morgan Holbart
+\item	Pick up item \textit{(law)} %Tessa Saul
 \item	Equip an item \textit{(law)}
-\item	Open inventory \textit{(law)}
+\item	Open inventory \textit{(law)} %Morgan Holbart
 \item	Move items in inventory \textit{(law)}
 \item	Look at stats (merge w/ open inventory?) \textit{(law)}
 \item	Look at map \textit{(law)}
 \item	Take damage \textit{(law)}
 \item	Die (and respawn?) \textit{(law)}
-\item	Hit a monster \textit{(law)}
+\item	Hit a monster \textit{(law)} %Can probably just combine with attacking, right?
 \item	Kill a monster \textit{(law)}
 \item	Open a door (and close it) \textit{(law)}
-\item	Enter a dungeon (and leave it) \textit{(law)}
+\item	Enter a dungeon \textit{(law)} %Tessa Saul
+\item	Leave a dungeon \textit{(law)} %Made this its own section - Ronnie
 \item	Level up \textit{(law)}
 \item	Use an item \textit{(law)}
 \item	Increase stats \textit{(law)}
 \item	Change current weapon (merge w/ equip an item?) \textit{(law)}
+\item	Start the game \textit{(law)} %Morgan Holbart
 \item	Close the game \textit{(law)}
 \item	Pick an item from the main menu \textit{(law)}
+\item	Crafting Items \textit{(law)} %Morgan Holbart
+\item	Selling Items \textit{(law)} %Tessa Saul
+\item	Buying Items \textit{(law)} %Tessa Saul
+\item	Initiating/Continuing Dialog \textit{(law)} %Morgan Holbart
 \end{itemize}
 
 \large \textbf{Anyone may feel free to take any of the above listed with (law) on it, 
@@ -58,5 +64,165 @@ I was just listing ideas}
 \chapter{Requirements}
 
 \chapter{Use Cases}
+\begin {section}{Player Tasks}
+
+moving through areas % Tessa Saul 
+
+Actor: Player
+
+Preconditions: The player has the area being moved to unlocked or available to him.
+
+Summary: The player accepts a prompt moving him to a new dungeon, floor, or back to the lobby.
+
+Steps:
+1. The player uses an object (door/computer).
+2. Player hits yes to the prompt on whether or not to use it.
+3. The player is moved from the current location to the new location.
+4. The new level is constructed (if a dungeon), or loaded (if the lobby) and the player is placed in it.
+------------------
+crafting items % Morgan Holbart
+
+Actor: Player
+
+Precondition: The player has the necessary ingredients to make a crafted item
+
+Summary: The PLayer takes ingredients for a crafted item and expends them to recieve a different item
+
+Steps:
+1. Player opens crafting menu
+2. Player selects crafting recipe
+3. The items for the recipe are destroyed
+4. The crafted item is placed in the player's inventory
+------------------
+selling items % Tessa Saul 
+
+Actor: Shopkeeper and player
+
+Preconditions: The player has an item that the shopkeeper is willing to buy. The shopkeeper has sufficient
+currency for the transaction
+
+Summary: Player exchanges an item for currency with a shopkeeper
+
+Steps: 
+1. Player approaches shopkeeper
+2. Player engages shop
+3. Player selects item from their inventory to sell
+4. Item is given to shopkeeper, currency is taken from shopkeeper and given to player
+------------------
+buying items % Tessa Saul 
+
+Actor: Shopkeeper and player
+
+Preconditions: The shopkeeper has an item that the player is willing to buy. The player has sufficient
+currency for the transaction
+
+Summary: Player exchanges an currency for item with a shopkeeper
+
+Steps: 
+1. Player approaches shopkeeper
+2. Player engages shop
+3. Player selects item from shopkeeper's inventory to buy
+4. Item is given to player, currency is taken from player and given to shopkeeper
+------------------
+picking up items % Tessa Saul 
+
+Actor: Player
+
+Precondition: The player has an empty slot big enough for the item in their inventory
+
+Summary: A player's action transfers an item from the environment into their inventory
+
+Steps:
+1. Player approaches item
+2. Player engages item
+3. Item is removed from environment
+4. Item is placed in the player's  inventory
+------------------
+dialog % Morgan Holbart
+
+Actors: Player and NPC
+
+Preconditions:
+1. The player is currently able to interact with the target
+2. The target wishes to interact with the player
+3. The NPC has something to say
+
+Summary: A player tries to initiate conversation with an NPC
+
+Steps:
+1. The player interacts with the NPC
+2. The NPC responds to the player
+3. The player can respond based on user input
+4. When the NPC runs out of things to say, the dialog ends
+------------------
+attacking % Morgan Holbart
+
+Actor: Player
+
+Preconditions:
+1. Player has a valid weapon to use equipped
+2. Player has ammo or durability to use equipped weapon
+3. Player is able to attack (not in a current dialog/other interaction)
+
+Steps:
+1. The player presses the input to attack
+2. Ammunition/Durability is subtracted
+3. The weapon animation/effects/etc are instantiated
+------------------
+opening doors
+------------------
+opening inventory/closing inventory % Morgan Holbart
+
+Actor: Player
+
+Preconditions: 
+1. Player can currently perform the action of opening/closing inventory
+
+Steps:
+1. The player presses the input to open/close the inventory
+2. The inventory is loaded and displayed or closed 
+------------------
+starting game % Morgan Holbart
+
+Actor: User
+
+Preconditions: 
+1. Player is in the menu
+2. Player is selecting the start game button
+
+Steps:
+1. The player presses the input to start the game
+2. The game loads the user save data
+3. The game loads the lobby level with regard to the user save data
+------------------
+Reload Weapon? % Morgan Holbart
+
+Actor: Player
+
+Preconditions: 
+1. Player has a weapon equipped that can reload
+2. Player has ammo to reload with
+
+Steps:
+1. Press the reload button
+2. Subtract ammo from the stored ammo
+3. Add the subtracted ammo to the current ammo
+-----------------
+Start Dungeon % Morgan Holbart
+
+Actor : Dungeon Leader(Player)
+
+Preconditions:
+1. Player is the leader of a dungeon group
+2. Player is currently connected with all party members
+3. Party members have all selected the ready button
+4. Party members all have adequate reputation to do the dungeon
+
+Steps:
+1. Player interacts with the computer he wishes to enter
+2. All other players are in party already, or join the party through the computer
+3. The party leader presses the start dungeon button.
+----------------
+\end{section}
 
 \end{document}
