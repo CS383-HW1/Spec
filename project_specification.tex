@@ -161,7 +161,7 @@ Steps:
 4. When the NPC runs out of things to say, the dialog ends
 ------------------
 
-\textbf{Attacking} % Morgan Holbart
+\textbf{Attacking} % Morgan Holbart, Ronnie Rodriguez
 
 Actor: Player
 
@@ -174,6 +174,7 @@ Steps:
 1. The player presses the input to attack
 2. Ammunition/Durability is subtracted
 3. The weapon animation/effects/etc are instantiated
+4. Amount of damage done per hit is subtracted from the enemy's total hit points
 ------------------
 
 \textbf{Opening Doors} %Ronnie Rodriguez
@@ -247,6 +248,23 @@ Steps:
 2. All other players are in party already, or join the party through the computer
 3. The party leader presses the start dungeon button.
 ----------------
+
+\textbf{Killing an Enemy} %Ronnie Rodriguez
+
+Actor: Player
+
+Preconditions:
+1. Player is able to attack enemy
+2. The enemy has a low enough armor rating to where the player's attacks are damaging it
+2. Enemy can be killed.
+
+Summary: Player attacks enemy with weapon until enemy's hit points are completely depleted.
+
+Steps:
+1. Player gets close enough to enemy to attack either ranged or melee
+2. Player depletes enemy's hit points before player's hit points are depleted by enemy
+3. Enemy ceases attacking and enemy death animation is instantiated.
+
 \end{section}
 
 \end{document}
