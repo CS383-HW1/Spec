@@ -14,559 +14,701 @@
 
 \title{Project Specification}
 \subtitle{CS 383 - Homework 1 - Group 3}
-\author{Mason Fabel, Ronald Rodriguez, Lance Wells, Morgan Holbart, NAMES} % TODO: Everyone add your name to this list
+
+\author{
+Mason Fabel \\
+\and Morgan Holbart \\
+\and Ronald Rodriguez \\
+\and Tessa Saul \\
+\and Lance Wells \\
+\and Zachary Yama \\
+}
+
 \date{\today}
 
 \begin{document}
 
 \maketitle
 
-% TODO: Discuss document contents Friday
-% TODO: Assign sections to team members Friday
+\chapter{Use Cases}
 
-\chapter{Tasks}
+\begin{section}{Morgan Holbart}
+\begin{subsection}{Crafting Items}
+Actor: Player
 
-\begin{section}{Temporary Tasks Section}
+Precondition:
+\begin{enumerate}
+\item The player has the necessary ingredients to make a crafted item.
+\end{enumerate}
 
-\begin{itemize}
-\item	Movement (and movement blocking, e.g. a wall) %Tessa Saul
-\item	Attacking %Morgan Holbart
-\item	Reload Weapon %Morgan Holbart
-\item	Pick up item %Tessa Saul
-\item	Equip an item %Zachary Yama
-\item	Open inventory %Morgan Holbart
-\item	Move items in inventory %Ronnie Rodriguez
-\item	Look at stats (merge w/ open inventory?) %Zachary Yama
-\item	Look at map %Zachary Yama
-\item	Take damage %Ronnie Rodriguez
-\item	Die (and respawn?) %Lance Wells
-\item	Hit a monster %Zachary Yama [Can probably just combine with attacking, right?]
-\item	Kill a monster %Zachary Yama
-\item	Open a door (and close it) %Ronnie Rodriguez
-\item	Enter a dungeon %Tessa Saul
-\item	Leave a dungeon %Lance Wells %Made this its own section - Ronnie
-\item	Level up %Zachary Yama
-\item	Use an item % Lance Wells
-\item	Increase stats %Zachary Yama
-\item	Change current weapon (merge w/ equip an item?) %Lance Wells
-\item	Start the game %Morgan Holbart
-\item	Close the game %Lance Wells
-\item	Using Keys/Codes %Ronnie Rodriguez
-\item	Pick an item from the main menu %Lance Wells
-\item	Crafting Items %Morgan Holbart
-\item	Selling Items %Tessa Saul
-\item	Buying Items %Tessa Saul
-\item	Initiating/Continuing Dialog %Morgan Holbart
-\end{itemize}
+Summary: The PLayer takes ingredients for a crafted item and expends them to
+recieve a different item.
 
-%Anyone may feel free to take any of the above listed with (law) on it, I was just listing ideas
+Steps:
+\begin{enumerate}
+\item Player opens crafting menu.
+\item Player selects crafting recipe.
+\item The items for the recipe are destroyed.
+\item The crafted item is placed in the player's inventory.
+\end{enumerate}
+\end{subsection}
 
+\begin{subsection}{Dialog}
+Actors: Player, NPC
+
+Preconditions:
+\begin{enumerate}
+\item The player is currently able to interact with the target.
+\item The target wishes to interact with the player.
+\item The NPC has something to say.
+\end{enumerate}
+
+Summary: A player tries to initiate conversation with an NPC.
+
+Steps:
+\begin{enumerate}
+\item The player interacts with the NPC.
+\item The NPC responds to the player.
+\item The player can respond based on user input.
+\item When the NPC runs out of things to say, the dialog ends.
+\end{enumerate}
+\end{subsection}
+
+\begin{subsection}{Opening and Closing Inventory}
+Actor: Player
+
+Preconditions: 
+\begin{enumerate}
+\item Player can currently perform the action of opening/closing inventory.
+\end{enumerate}
+
+Steps:
+\begin{enumerate}
+\item The player presses the input to open/close the inventory.
+\item The inventory is loaded and displayed or closed .
+\end{enumerate}
+\end{subsection}
+
+\begin{subsection}{Starting Game}
+Actor: Player
+
+Preconditions: 
+\begin{enumerate}
+\item Player is in the menu.
+\item Player is selecting the start game button.
+\end{enumerate}
+
+Steps:
+\begin{enumerate}
+\item The player presses the input to start the game.
+\item The game loads the user save data.
+\item The game loads the lobby level with regard to the user save data.
+\end{enumerate}
+\end{subsection}
+
+\begin{subsection}{Reload Weapon}
+Actor: Player
+
+Preconditions: 
+\begin{enumerate}
+\item Player has a weapon equipped that can reload.
+\item Player has ammo to reload with.
+\end{enumerate}
+
+Steps:
+\begin{enumerate}
+\item Press the reload button.
+\item Subtract ammo from the stored ammo.
+\item Add the subtracted ammo to the current ammo.
+\end{enumerate}
+\end{subsection}
+
+\begin{subsection}{Start Dungeon}
+Actor: Player
+
+Preconditions:
+\begin{enumerate}
+\item Player is the leader of a dungeon group.
+\item Player is currently connected with all party members.
+\item Party members have all selected the ready button.
+\item Party members all have adequate reputation to do the dungeon.
+\end{enumerate}
+
+Steps:
+\begin{enumerate}
+\item Player interacts with the computer he wishes to enter.
+\item All other players are in party already, or join the party through the
+computer.
+\item The party leader presses the start dungeon button.
+\end{enumerate}
+\end{subsection}
+
+\begin{subsection}{Attacking (with Ronnie Rodriguez)}
+Actor: Player
+
+Preconditions:
+\begin{enumerate}
+\item Player has a valid weapon to use equipped.
+\item Player has ammo or durability to use equipped weapon.
+\item Player is able to attack (not in a current dialog/other interaction).
+\end{enumerate}
+
+Steps:
+\begin{enumerate}
+\item The player presses the input to attack.
+\item Ammunition/Durability is subtracted.
+\item The weapon animation/effects/etc are instantiated.
+\item Amount of damage done per hit is subtracted from the enemy's total hit
+points.
+\end{enumerate}
+\end{subsection}
 \end{section}
 
-\chapter{Requirements}
-
-\chapter{Use Cases}
-\begin {section}{Player Tasks}
-
-\textbf {Die} % Lance Wells
-
-Actor: Player
-
-Preconditions: The player is actively playing the game and has just taken fatal damage.
-
-Summary: The player has taken fatal damage and now proceeds to die with a restart option.
-
-Steps:
-1. The player takes some form of fatal damage.
-2. The player is then frozen on the spot, unable to interact with any surroundings.
-3. The player proceeds into a possible death animation for a few seconds.
-4. The player must then choose from a pop-up menu how they would like to proceed.
-------------------
-
-\textbf {Leave a Dungeon} % Lance Wells
-
-Actor: Player
-
-Preconditions: The player currently inside of a dungeon.
-
-Summary: The player leaves a dungeon through the use of a menu.
-
-Steps:
-1. The player presses a button that requests to leave the current dungeon.
-2. A confirmation window appears that prompts the player if they would like to proceed.
-3. If the player chooses to leave the dungeon (again), they will switch to the main lobby.
-4. If the player chooses to remain in the dungeon, the prompt window will close.
-------------------
-
-\textbf {Use an Item} % Lance Wells
-
-Actor: Player
-
-Preconditions: The player currently has some usable item.
-
-Summary: The player actively uses some usable item.
-
-Steps:
-1. The player either opens their inventory, or currently has a usable item equipped in some fashion.
-2. The player will indicate the specific item that they wish to use through some button combination or key press.
-3. The item then is removed from the player's inventory.
-4. The item's effect then occurs.
-------------------
-
-\textbf {Change current weapon} % Lance Wells
-
-Actor: Player
-
-Preconditions: The player currently has two or more selectable weapons.
-
-Summary: The player indicates a weapon to change and does so.
-
-Steps:
-1. The player either opens their inventory or currently has two or more "equipped" weapons.
-2. The player indicates a request as to which weapon to switch to through some key press.
-3. The player's active weapon is considered to no longer be active and potentially returned to their inventory.
-4. The player then either equips the newly indicated weapon or that new weapon is considered to be active.
-------------------
-
-\textbf {Close the game (in-game)} % Lance Wells
-
-Actor: Player
-
-Preconditions: The player has access to the menu that allows for the game to close.
-
-Summary: The player closes the game via an in-game menu option.
-
-Steps:
-1. The player indicates a request to leave via some button press.
-2. A pop-up window appears requesting the player to confirm that they would like to close the game.
-3. If the player should proceed, the program will (potentially) auto-save and then close entirely.
-------------------
-
-\textbf {Pick an item from the main menu} % Lance Wells
-
-Actor: Player
-
-Preconditions: The player is currently at the main menu.
-
-Summary: The player selects an option via some button press that reacts appropriately.
-
-Steps:
-1. The player is selects some menu option with a button press.
-2. The menu either then disappears and is replaced with another menu, or closes and reacts according to the user's request.
-------------------
-
-\textbf {Level Up} % Lance Wells
-
-Actor: Player
-
-Preconditions: The player has all requirements to achieve an increase in level and is currently in the lobby.
-
-Summary: The player moves (literally) up a level in progress.
-
-Steps:
-1. The player is informed through some message that they are now eligible for an advancement in their level.
-2. The player makes a request with some NPC that they would like to advance a level.
-3. The player's current reputation is now adjusted to mirror their current level.
-4. The player is physically adjusted up one level of the office building.
-
-------------------
-\textbf {Increase Stats} % Lance Wells
-
-Actor: Player
-
-Preconditions: The player has alterable stats that can be changed through some action.
-
-Summary: The player makes a request for a stat adjustment through some method and is altered in kind.
-
-Steps:
-1. The player makes a request to change stats through an item being equipped/unequipped or otherwise.
-2. The player's request is processed and the player's stats are changed to mirror the request.
-------------------
-
-\textbf {Moving Through Areas} % Tessa Saul 
-
-Actor: Player
-
-Preconditions: The player has the area being moved to unlocked or available to him.
-
-Summary: The player accepts a prompt moving him to a new dungeon, floor, or back to the lobby.
-
-Steps:
-1. The player uses an object (door/computer).
-2. Player hits yes to the prompt on whether or not to use it.
-3. The player is moved from the current location to the new location.
-4. The new level is constructed (if a dungeon), or loaded (if the lobby) and the player is placed in it.
-------------------
-
-\textbf{Crafting Items} % Morgan Holbart
-
-Actor: Player
-
-Precondition: The player has the necessary ingredients to make a crafted item
-
-Summary: The PLayer takes ingredients for a crafted item and expends them to recieve a different item
-
-Steps:
-1. Player opens crafting menu
-2. Player selects crafting recipe
-3. The items for the recipe are destroyed
-4. The crafted item is placed in the player's inventory
-------------------
-
-\textbf{Selling Items} % Tessa Saul 
-
-Actor: Shopkeeper and player
-
-Preconditions: The player has an item that the shopkeeper is willing to buy. The shopkeeper has sufficient
-currency for the transaction
-
-Summary: Player exchanges an item for currency with a shopkeeper
-
-Steps: 
-1. Player approaches shopkeeper
-2. Player engages shop
-3. Player selects item from their inventory to sell
-4. Item is given to shopkeeper, currency is taken from shopkeeper and given to player
-------------------
-
-\textbf{Buying Items} % Tessa Saul 
-
-Actor: Shopkeeper and player
-
-Preconditions: The shopkeeper has an item that the player is willing to buy. The player has sufficient
-currency for the transaction
-
-Summary: Player exchanges an currency for item with a shopkeeper
-
-Steps: 
-1. Player approaches shopkeeper
-2. Player engages shop
-3. Player selects item from shopkeeper's inventory to buy
-4. Item is given to player, currency is taken from player and given to shopkeeper
-------------------
-
-\textbf{Picking Up Items} % Tessa Saul 
-
-Actor: Player
-
-Precondition: The player has an empty slot big enough for the item in their inventory
-
-Summary: A player's action transfers an item from the environment into their inventory
-
-Steps:
-1. Player approaches item
-2. Player engages item
-3. Item is removed from environment
-4. Item is placed in the player's  inventory
-------------------
-
-\textbf{Dialog} % Morgan Holbart
-
-Actors: Player and NPC
-
-Preconditions:
-1. The player is currently able to interact with the target
-2. The target wishes to interact with the player
-3. The NPC has something to say
-
-Summary: A player tries to initiate conversation with an NPC
-
-Steps:
-1. The player interacts with the NPC
-2. The NPC responds to the player
-3. The player can respond based on user input
-4. When the NPC runs out of things to say, the dialog ends
-------------------
-
-\textbf{Attacking} % Morgan Holbart, Ronnie Rodriguez
-
+\begin{section}{Ronnie Rodriguez}
+\begin{subsection}{Opening Doors}
 Actor: Player
 
 Preconditions:
-1. Player has a valid weapon to use equipped
-2. Player has ammo or durability to use equipped weapon
-3. Player is able to attack (not in a current dialog/other interaction)
-
-Steps:
-1. The player presses the input to attack
-2. Ammunition/Durability is subtracted
-3. The weapon animation/effects/etc are instantiated
-4. Amount of damage done per hit is subtracted from the enemy's total hit points
-------------------
-
-\textbf{Opening Doors} %Ronnie Rodriguez
-
-Actor: Player
-
-Preconditions:
-1. The door is able to be opened.
+\begin{enumerate}
+\item The door is able to be opened.
+\end{enumerate}
 
 Summary: Player tries to open a door to access area on the other side. 
 
 Steps:
-1. The player approaches the door
-2. Once close enough to the door, the player presses input to attempt to enter.
-3. If door is unlocked, door opens and player is granted access to the area on the other side.
-4. If door is locked, a "locked" or "Need Key" prompt is output to the screen.
-------------------
+\begin{enumerate}
+\item The player approaches the door.
+\item Once close enough to the door, the player presses input to attempt to
+enter.
+\item If door is unlocked, door opens and player is granted access to the
+area on the other side.
+\item If door is locked, a "locked" or "Need Key" prompt is output to the
+screen.
+\end{enumerate}
+\end{subsection}
 
-\textbf{Opening/Closing Inventory} % Morgan Holbart
-
-Actor: Player
-
-Preconditions: 
-1. Player can currently perform the action of opening/closing inventory
-
-Steps:
-1. The player presses the input to open/close the inventory
-2. The inventory is loaded and displayed or closed 
-------------------
-
-\textbf{Starting Game} % Morgan Holbart
-
-Actor: User
-
-Preconditions: 
-1. Player is in the menu
-2. Player is selecting the start game button
-
-Steps:
-1. The player presses the input to start the game
-2. The game loads the user save data
-3. The game loads the lobby level with regard to the user save data
-------------------
-
-\textbf{Reload Weapon} % Morgan Holbart
-
-Actor: Player
-
-Preconditions: 
-1. Player has a weapon equipped that can reload
-2. Player has ammo to reload with
-
-Steps:
-1. Press the reload button
-2. Subtract ammo from the stored ammo
-3. Add the subtracted ammo to the current ammo
------------------
-
-\textbf{Start Dungeon} % Morgan Holbart
-
-Actor : Dungeon Leader(Player)
-
-Preconditions:
-1. Player is the leader of a dungeon group
-2. Player is currently connected with all party members
-3. Party members have all selected the ready button
-4. Party members all have adequate reputation to do the dungeon
-
-Steps:
-1. Player interacts with the computer he wishes to enter
-2. All other players are in party already, or join the party through the computer
-3. The party leader presses the start dungeon button.
-----------------
-
-\textbf{Killing an Enemy} %Ronnie Rodriguez
-
+\begin{subsection}{Killing an Enemy}
 Actor: Player, Enemy
 
 Preconditions:
-1. Player is able to attack enemy
-2. The enemy has a low enough armor rating to where the player's attacks are damaging it
-3. Enemy can be killed.
+\begin{enumerate}
+\item Player is able to attack enemy.
+\item The enemy has a low enough armor rating to where the player's attacks
+are damaging it.
+\item Enemy can be killed.
+\end{enumerate}
 
-Summary: Player attacks enemy with weapon until enemy's hit points are completely depleted.
+Summary: Player attacks enemy with weapon until enemy's hit points are
+completely depleted.
 
 Steps:
-1. Player gets close enough to enemy to attack either ranged or melee
-2. Player depletes enemy's hit points before player's hit points are depleted by enemy
-3. Enemy ceases attacking and enemy death animation is instantiated.
-----------------
+\begin{enumerate}
+\item Player gets close enough to enemy to attack either ranged or melee.
+\item Player depletes enemy's hit points before player's hit points are
+depleted by enemy.
+\item Enemy ceases attacking and enemy death animation is instantiated.
+\end{enumerate}
+\end{subsection}
 
-\textbf{Using Keys/Codes} %Ronnie Rodriguez
-
+\begin{subsection}{Using Keys and Codes}
 Actor: Player
 
 Preconditions:
-1. A door the player wishes to go through is currently locked
-2. Player has needed key/code to unlock door in inventory
+\begin{enumerate}
+\item A door the player wishes to go through is currently locked.
+\item Player has needed key/code to unlock door in inventory.
+\end{enumerate}
 
 Summary: Player uses found keys or codes to unlock locked doors.
 
 Steps:
-1. Player gets close enough to door to interact with it
-2. Player presses input to initialize unlocking procedure
-3. "Unlock door with key/code?" prompt is displayed on the screen along with Yes or No choice
-4. Player chooses yes or no option
-5. If player chooses no, prompt closes, door remains locked, and key/code remains in inventory
-6. If player chooses yes, "Door Unlocked" prompt displays to screen, door unlocks, and key/code is removed from inventory
-7. Player initiates Open Door procedure (see above)
-----------------
+\begin{enumerate}
+\item Player gets close enough to door to interact with it.
+\item Player presses input to initialize unlocking procedure.
+\item ``Unlock door with key/code?'' prompt is displayed on the screen along
+with Yes or No choice.
+\item Player chooses Yes or No option.
+\item If player chooses No, prompt closes, door remains locked, and key/code
+remains in inventory.
+\item If player chooses Yes, ``Door Unlocked'' prompt displays to screen,
+door unlocks, and key/code is removed from inventory.
+\item Player initiates Open Door procedure (see above).
+\end{enumerate}
+\end{subsection}
 
-\textbf{Taking Damage} %Ronnie Rodriguez
-
+\begin{subsection}{Taking Damage}
 Actor: Player
 
 Preconditions:
-1. Player is being attacked by enemy
-2. Player has a low enough armor rating to where they are able to be damaged by current enemy
+\begin{enumerate}
+\item Player is being attacked by enemy.
+\item Player has a low enough armor rating to where they are able to be
+damaged by current enemy.
+\end{enumerate}
 
-Summary: Player is being attacked and is losing health/HP
+Summary: Player is being attacked and is losing health/HP.
 
 Steps:
-1. Player is attacked by enemy
-2. Depending on strength of enemy, an amount of damage is done to the player
-3. Amount of hit points directly related to amount of damage done by enemy is subtracted from the player's total remaining health.
-----------------
+\begin{enumerate}
+\item Player is attacked by enemy.
+\item Depending on strength of enemy, an amount of damage is done to the
+player.
+\item Amount of hit points directly related to amount of damage done by
+enemy is subtracted from the player's total remaining health..
+\end{enumerate}
+\end{subsection}
 
-\textbf{Moving Items in Inventory} %Ronnie Rodriguez
-
+\begin{subsection}{Moving Items in Inventory}
 Actor: Player
 
 Preconditions:
-1. Player has an item(s) in inventory they'd like to rearrange
+\begin{enumerate}
+\item Player has an item(s) in inventory they'd like to rearrange.
+\end{enumerate}
 
-Summary: Player can manually rearrange items in inventory for better organization and quicker use.
+Summary: Player can manually rearrange items in inventory for better
+organization and quicker use.
 
 Steps:
-1. Player presses input to open inventory
-2. Game action is paused(?) while inventory is open
-3. Player selects "Rearrange" option from inventory sidebar
-4. Player presses input to select item they wish to move
-5. Item selected is highlighted
-6. Player navigates inventory and presses input to choose inventory slot they would like to move item to
-7. If selected inventory slot is empty, item is moved to that slot, original slot holding the item is now empty
-8. If selected inventory slot is occupied, selected item will swap places with item in occupied slot. 
-----------------
+\begin{enumerate}
+\item Player presses input to open inventory.
+\item Game action is paused while inventory is open.
+\item Player selects ``Rearrange'' option from inventory sidebar.
+\item Player presses input to select item they wish to move.
+\item Item selected is highlighted.
+\item Player navigates inventory and presses input to choose inventory slot
+they would like to move item to.
+\item If selected inventory slot is empty, item is moved to that slot,
+original slot holding the item is now empty.
+\item If selected inventory slot is occupied, selected item will swap places
+with item in occupied slot. 
+\end{enumerate}
+\end{subsection}
+\end{section}
 
-\textbf{Equip an Item} %Zachary Yama
-
+\begin{section}{Tessa Saul}
+\begin{subsection}{Moving through Areas}
 Actor: Player
 
-Precondition: 
-1. The player has the status to equip the item. 
-2. The item is in their inventory.
+Preconditions:
+\begin{enumerate}
+\item The player has the area being moved to unlocked or available to him.
+\end{enumerate}
 
-Summary: A player's action transfers an item from their inventory to their equipment.
+Summary: The player accepts a prompt moving him to a new dungeon, floor, or
+back to the lobby.
 
 Steps:
-1. Player has the item.
-2. Player selects an equip action.
-3. Item is removed from inventory.
-4. Item is placed in equipment.
-5. Item(s) currently in equipment occupying the spaces required to eqiup the new item are moved to inventory.
-6. If the item(s) being swapped out assume more inventory space then the player has, ignore/undue the equip action.
-------------------
+\begin{enumerate}
+\item The player uses an object (door/computer).
+\item Player hits yes to the prompt on whether or not to use it.
+\item The player is moved from the current location to the new location.
+\item The new level is constructed (if a dungeon), or loaded (if the lobby)
+and the player is placed in it.
+\end{enumerate}
+\end{subsection}
 
-\textbf{Look at stats} %Zachary Yama - almost identical to "Open Inventory"
+\begin{subsection}{Selling Items}
+Actor: Player, Shopkeeper
 
+Preconditions:
+\begin{enumerate}
+\item The player has an item that the shopkeeper is willing to buy.
+\item The shopkeeper has sufficient currency for the transaction.
+\end{enumerate}
+
+Summary: Player exchanges an item for currency with a shopkeeper.
+
+Steps: 
+\begin{enumerate}
+\item Player approaches shopkeeper.
+\item Player engages shop.
+\item Player selects item from their inventory to sell.
+\item Item is given to shopkeeper, currency is taken from shopkeeper and
+given to player.
+\end{enumerate}
+\end{subsection}
+
+\begin{subsection}{Buying Items}
+Actor: Player, Shopkeeper
+
+Preconditions:
+\begin{enumerate}
+\item The shopkeeper has an item that the player is willing to buy.
+\item The player has sufficient currency for the transaction.
+\end{enumerate}
+
+Summary: Player exchanges an currency for item with a shopkeeper.
+
+Steps: 
+\begin{enumerate}
+\item Player approaches shopkeeper.
+\item Player engages shop.
+\item Player selects item from shopkeeper's inventory to buy.
+\item Item is given to player, currency is taken from player and given to
+shopkeeper.
+\end{enumerate}
+\end{subsection}
+
+\begin{subsection}{Picking Up Items}
 Actor: Player
 
 Precondition:
-1. The player selects the status menu icon.
+\begin{enumerate}
+\item The player has an empty slot big enough for the item in their
+inventory.
+\end{enumerate}
+
+Summary: A player's action transfers an item from the environment into their
+inventory.
+
+Steps:
+\begin{enumerate}
+\item Player approaches item.
+\item Player engages item.
+\item Item is removed from environment.
+\item Item is placed in the player's  inventory.
+\end{enumerate}
+\end{subsection}
+\end{section}
+
+\begin{section}{Lance Wells}
+\begin{subsection}{Die}
+Actor: Player
+
+Preconditions:
+\begin{enumerate}
+\item The player is actively playing the game and has just taken
+fatal damage.
+\end{enumerate}
+
+Summary: The player has taken fatal damage and now proceeds to die with a
+restart option.
+
+Steps:
+\begin{enumerate}
+\item The player takes some form of fatal damage.
+\item The player is then frozen on the spot, unable to interact with any
+surroundings.
+\item The player proceeds into a possible death animation for a few seconds.
+\item The player must then choose from a pop-up menu how they would like to
+proceed.
+\end{enumerate}
+\end{subsection}
+
+\begin{subsection}{Leave a Dungeon}
+Actor: Player
+
+Preconditions:
+\begin{enumerate}
+\item The player currently inside of a dungeon.
+\end{enumerate}
+
+Summary: The player leaves a dungeon through the use of a menu.
+
+Steps:
+\begin{enumerate}
+\item1 The player presses a button that requests to leave the current
+dungeon.
+\item A confirmation window appears that prompts the player if they would
+like to proceed.
+\item If the player chooses to leave the dungeon again, they will switch
+to the main lobby.
+\item If the player chooses to remain in the dungeon, the prompt window will
+close.
+\end{enumerate}
+\end{subsection}
+
+\begin{subsection}{Use an Item}
+Actor: Player
+
+Preconditions:
+\begin{enumerate}
+\item The player currently has some usable item.
+\end{enumerate}
+
+Summary: The player actively uses some usable item.
+
+Steps:
+\begin{enumerate}
+\item The player either opens their inventory, or currently has a usable
+item equipped in some fashion.
+\item The player will indicate the specific item that they wish to use
+through some button combination or key press.
+\item The item then is removed from the player's inventory.
+\item The item's effect then occurs.
+\end{enumerate}
+\end{subsection}
+
+\begin{subsection}{Change Current Weapon}
+Actor: Player
+
+Preconditions:
+\begin{enumerate}
+\item The player currently has two or more selectable weapons.
+\end{enumerate}
+
+Summary: The player indicates a weapon to change and does so.
+
+Steps:
+\begin{enumerate}
+\item The player either opens their inventory or currently has two or more
+``equipped'' weapons.
+\item The player indicates a request as to which weapon to switch to through
+some key press.
+\item The player's active weapon is considered to no longer be active and
+potentially returned to their inventory.
+\item The player then either equips the newly indicated weapon or that new
+weapon is considered to be active.
+\end{enumerate}
+\end{subsection}
+
+\begin{subsection}{Close the Game}
+Actor: Player
+
+Preconditions:
+\begin{enumerate}
+\item The player has access to the menu that allows for the game to close.
+\end{enumerate}
+
+Summary: The player closes the game via an in-game menu option.
+
+Steps:
+\begin{enumerate}
+\item The player indicates a request to leave via some button press.
+\item A pop-up window appears requesting the player to confirm that they
+would like to close the game.
+\item If the player should proceed, the program will (potentially) auto-save
+and then close entirely.
+\end{enumerate}
+\end{subsection}
+
+\begin{subsection}{Select an Item from Inventory}
+Actor: Player
+
+Preconditions:
+\begin{enumerate}
+\item The player is currently at the main menu.
+\end{enumerate}
+
+Summary: The player selects an option via some button press that reacts
+appropriately.
+
+Steps:
+\begin{enumerate}
+\item The player is selects some menu option with a button press.
+\item The menu either then disappears and is replaced with another menu, or
+closes and reacts according to the user's request.
+\end{enumerate}
+\end{subsection}
+
+\begin{subsection}{Level Up}
+Actor: Player
+
+Preconditions:
+\begin{enumerate}
+\item The player has all requirements to achieve an increase in level
+\item The player is currently in the lobby.
+\end{enumerate}
+
+Summary: The player moves (literally) up a level in progress.
+
+Steps:
+\begin{enumerate}
+\item The player is informed through some message that they are now eligible
+for an advancement in their level.
+\item The player makes a request with some NPC that they would like to
+advance a level.
+\item The player's current reputation is now adjusted to mirror their
+current level.
+\item The player is physically adjusted up one level of the office building.
+\end{enumerate}
+\end{subsection}
+
+\begin{subsection}{Increase Stats}
+Actor: Player
+
+Preconditions:
+\begin{enumerate}
+\item The player has alterable stats that can be changed through some
+action.
+\end{enumerate}
+
+Summary: The player makes a request for a stat adjustment through some
+method and is altered in kind.
+
+Steps:
+\begin{enumerate}
+\item The player makes a request to change stats through an item being
+equipped or unequipped or otherwise.
+\item The player's request is processed and the player's stats are changed
+to mirror the request.
+\end{enumerate}
+\end{subsection}
+\end{section}
+
+\begin{section}{Zachary Yama}
+\begin{subsection}{Equip and Item}
+Actor: Player
+
+Precondition: 
+\begin{enumerate}
+\item The player has the status to equip the item. 
+\item The item is in their inventory.
+\end{enumerate}
+
+Summary: A player's action transfers an item from their inventory to their
+equipment.
+
+Steps:
+\begin{enumerate}
+\item Player has the item.
+\item Player selects an equip action.
+\item Item is removed from inventory.
+\item Item is placed in equipment.
+\item Item(s) currently in equipment occupying the spaces required to eqiup
+the new item are moved to inventory.
+\item If the item(s) being swapped out assume more inventory space then the
+player has, ignore/undue the equip action.
+\end{enumerate}
+\end{subsection}
+
+\begin{subsection}{Look at Stats}
+Actor: Player
+
+Precondition:
+\begin{enumerate}
+\item The player selects the status menu icon.
+\end{enumerate}
 
 Summary: Input from the player opens the status menu.
 
 Steps:
-1. Player selects stats menu icon.
-2. The status window is opened.
-3. Status information is read and loaded into the window.
-4. Stat alteration actions are deactivated or activated depending on status point availability.
-------------------
+\begin{enumerate}
+\item Player selects stats menu icon.
+\item The status window is opened.
+\item Status information is read and loaded into the window.
+\item Stat alteration actions are deactivated or activated depending on
+status point availability.
+\end{enumerate}
+\end{subsection}
 
-\textbf{Look at map} %Zachary Yama
-
+\begin{subsection}{Look at Map}
 Actor: Player
 
 Precondition:
-1. The player toggles the map menu icon.
+\begin{enumerate}
+\item The player toggles the map menu icon.
+\end{enumerate}
 
 Summary: Input form the player opens the map menu.
 
 Steps:
-1. The player selects the map menu icon.
-2. The map menu is opened.
-3. Player coordinates are set as a map rendering position.
-4. The surrounding level content is loaded into the map.
-5. Explored content is displayed.
-------------------
+\begin{enumerate}
+\item The player selects the map menu icon.
+\item The map menu is opened.
+\item Player coordinates are set as a map rendering position.
+\item The surrounding level content is loaded into the map.
+\item Explored content is displayed.
+\end{enumerate}
+\end{subsection}
 
-\textbf{Hit a monster} %Zachary Yama
-
+\begin{subsection}{Hit a Monster}
 Actor: Player, Monster
 
 Precondition:
-1. The player has attacked.
-2. The player's attack hitbox hit a monster.
+\begin{enumerate}
+\item The player has attacked.
+\item The player's attack hitbox hit a monster.
+\end{enumerate}
 
-Summary: A player has performed the action to attack, and successfully hit an enemy.
+Summary: A player has performed the action to attack, and successfully hit
+an enemy.
 
 Steps:
-1. Calculate active collisions to determine if the enemy was hit.
-2. The damage delt is calculated based on player and monster attributes.
-3. Damage is deducted from the monster's health. 
-4. Any elemental or otherwise behavior altering elements are applied to the monster.
-5. If the monster's health is zero, the monster's status is changed to dead.
-------------------
+\begin{enumerate}
+\item Calculate active collisions to determine if the enemy was hit.
+\item The damage delt is calculated based on player and monster attributes.
+\item Damage is deducted from the monster's health. 
+\item Any elemental or otherwise behavior altering elements are applied to
+the monster.
+\item  If the monster's health is zero, the monster's status is changed to
+dead.
+\end{enumerate}
+\end{subsection}
 
-\textbf{Kill a monster} %Zachary Yama
-
+\begin{subsection}{Kill a Monster}
 Actor: Player, Monster
 
 Precondition:
-1. The player has reduced a monster's health to zero.
+\begin{enumerate}
+\item The player has reduced a monster's health to zero.
+\end{enumerate}
 
 Summary: A monsters health has been reduced to zero, and is dead.
 
 Steps:
-1. The monster's hitbox is no longer active.
-2. Any active AI is no longer active.
-3. A death animation is played.
-4. The displayed sprite is changed to represent a dead enemy.
-5. The status of the enemy is set to dead, and any ressurection elements are set to applicable.
-6. The enemy is determined to be permanatly dead.
-7. Any items to drop are generated.
-8. The item is instanciated and dropped.
-------------------
+\begin{enumerate}
+\item The monster's hitbox is no longer active.
+\item Any active AI is no longer active.
+\item A death animation is played.
+\item The displayed sprite is changed to represent a dead enemy.
+\item The status of the enemy is set to dead, and any ressurection elements
+are set to applicable.
+\item The enemy is determined to be permanatly dead.
+\item Any items to drop are generated.
+\item The item is instanciated and dropped.
+\end{enumerate}
+\end{subsection}
 
-\textbf{Level up} %Zachary Yama
-
+\begin{subsection}{Level Up}
 Actor: Player
 
 Precondition:
-1. The player has the required experience (Reputation?) to level up.
+\begin{enumerate}
+\item The player has the required experience (Reputation?) to level up.
+\end{enumerate}
 
 Summary: A player has gained enough experience to increase their level. 
 
 Steps:
-1. The experience level is compared to the amount required to level up. 
-2. If the experience level is high enough, the player's level is increased by 1.
-3. Usable stats points are awarded to the stats class. 
-4. The expereince bar size is recalculated.
-5. The current amount of experience is reduced to zero plus any additional experience carryover.
-6. A levelup indicator is displayed.
-7. Health is regenerated?
-------------------
+\begin{enumerate}
+\item The experience level is compared to the amount required to level up. 
+\item If the experience level is high enough, the player's level is
+increased by 1.
+\item Usable stats points are awarded to the stats class. 
+\item The expereince bar size is recalculated.
+\item The current amount of experience is reduced to zero plus any
+additional experience carryover.
+\item A levelup indicator is displayed.
+\item Health is regenerated.
+\end{enumerate}
+\end{subsection}
 
-\textbf{Increase Stats} %Zachary Yama
-
+\begin{subsection}{Increase Stats}
 Actor: Player
 
 Precondition:
-1. The player has available status points to spend.
+\begin{enumerate}
+\item The player has available status points to spend.
+\end{enumerate}
 
 Summary: A player has unspent stats points and expends them. 
 
 Steps:
-1. The player selects a stat to increase.
-2. The amount of points required to increase a stat are calculated.
-3. If a stat requires more points than available, its increase action is deactivated.
-4. If there are enough points to expend, available stats points are reduced accordingly.
-5. The stat is increased. 
-6. Steps 1-5 are repeated for every action until all stats points are expened.
-7. Any remaining points are saved.
-------------------
-
+\begin{enumerate}
+\item The player selects a stat to increase.
+\item The amount of points required to increase a stat are calculated.
+\item If a stat requires more points than available, its increase action is
+deactivated.
+\item If there are enough points to expend, available stats points are
+reduced accordingly.
+\item The stat is increased. 
+\item Steps 1-5 are repeated for every action until all stats points are
+expened.
+\item Any remaining points are saved.
+\end{enumerate}
+\end{subsection}
 \end{section}
 
 \end{document}
