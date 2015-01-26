@@ -1,4 +1,3 @@
-
 \documentclass[12pt]{report}
 \usepackage{geometry}
 \usepackage{titling}
@@ -34,17 +33,23 @@ Mason Fabel \\
 
 \begin{section}{Morgan Holbart}
 \begin{subsection}{Crafting Items}
-Actor: Player
+\textbf{Actor}:
 
-Precondition:
+Player
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item The player has the necessary ingredients to make a crafted item.
 \end{enumerate}
 
-Summary: The PLayer takes ingredients for a crafted item and expends them to
+\textbf{Summary}:
+
+The player takes ingredients for a crafted item and expends them to
 recieve a different item.
 
-Steps:
+\textbf{Steps}:
+
 \begin{enumerate}
 \item Player opens crafting menu.
 \item Player selects crafting recipe.
@@ -54,18 +59,22 @@ Steps:
 \end{subsection}
 
 \begin{subsection}{Dialog}
-Actors: Player, NPC
+\textbf{Actor}s: Player, NPC
 
-Preconditions:
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item The player is currently able to interact with the target.
 \item The target wishes to interact with the player.
 \item The NPC has something to say.
 \end{enumerate}
 
-Summary: A player tries to initiate conversation with an NPC.
+\textbf{Summary}:
 
-Steps:
+A player tries to initiate conversation with an NPC.
+
+\textbf{Steps}:
+
 \begin{enumerate}
 \item The player interacts with the NPC.
 \item The NPC responds to the player.
@@ -75,14 +84,18 @@ Steps:
 \end{subsection}
 
 \begin{subsection}{Opening and Closing Inventory}
-Actor: Player
+\textbf{Actor}:
 
-Preconditions: 
+Player
+
+\textbf{Preconditions}:
+ 
 \begin{enumerate}
 \item Player can currently perform the action of opening/closing inventory.
 \end{enumerate}
 
-Steps:
+\textbf{Steps}:
+
 \begin{enumerate}
 \item The player presses the input to open/close the inventory.
 \item The inventory is loaded and displayed or closed .
@@ -90,15 +103,19 @@ Steps:
 \end{subsection}
 
 \begin{subsection}{Starting Game}
-Actor: Player
+\textbf{Actor}:
 
-Preconditions: 
+Player
+
+\textbf{Preconditions}:
+ 
 \begin{enumerate}
 \item Player is in the menu.
 \item Player is selecting the start game button.
 \end{enumerate}
 
-Steps:
+\textbf{Steps}:
+
 \begin{enumerate}
 \item The player presses the input to start the game.
 \item The game loads the user save data.
@@ -107,15 +124,19 @@ Steps:
 \end{subsection}
 
 \begin{subsection}{Reload Weapon}
-Actor: Player
+\textbf{Actor}:
 
-Preconditions: 
+Player
+
+\textbf{Preconditions}:
+ 
 \begin{enumerate}
 \item Player has a weapon equipped that can reload.
 \item Player has ammo to reload with.
 \end{enumerate}
 
-Steps:
+\textbf{Steps}:
+
 \begin{enumerate}
 \item Press the reload button.
 \item Subtract ammo from the stored ammo.
@@ -124,9 +145,12 @@ Steps:
 \end{subsection}
 
 \begin{subsection}{Start Dungeon}
-Actor: Player
+\textbf{Actor}:
 
-Preconditions:
+Player
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item Player is the leader of a dungeon group.
 \item Player is currently connected with all party members.
@@ -134,7 +158,8 @@ Preconditions:
 \item Party members all have adequate reputation to do the dungeon.
 \end{enumerate}
 
-Steps:
+\textbf{Steps}:
+
 \begin{enumerate}
 \item Player interacts with the computer he wishes to enter.
 \item All other players are in party already, or join the party through the
@@ -144,16 +169,20 @@ computer.
 \end{subsection}
 
 \begin{subsection}{Attacking (with Ronnie Rodriguez)}
-Actor: Player
+\textbf{Actor}:
 
-Preconditions:
+Player
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item Player has a valid weapon to use equipped.
 \item Player has ammo or durability to use equipped weapon.
 \item Player is able to attack (not in a current dialog/other interaction).
 \end{enumerate}
 
-Steps:
+\textbf{Steps}:
+
 \begin{enumerate}
 \item The player presses the input to attack.
 \item Ammunition/Durability is subtracted.
@@ -166,16 +195,22 @@ points.
 
 \begin{section}{Ronnie Rodriguez}
 \begin{subsection}{Opening Doors}
-Actor: Player
+\textbf{Actor}:
 
-Preconditions:
+Player
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item The door is able to be opened.
 \end{enumerate}
 
-Summary: Player tries to open a door to access area on the other side. 
+\textbf{Summary}:
 
-Steps:
+Player tries to open a door to access area on the other side. 
+
+\textbf{Steps}:
+
 \begin{enumerate}
 \item The player approaches the door.
 \item Once close enough to the door, the player presses input to attempt to
@@ -188,9 +223,12 @@ screen.
 \end{subsection}
 
 \begin{subsection}{Killing an Enemy}
-Actor: Player, Enemy
+\textbf{Actor}:
 
-Preconditions:
+Player, Enemy
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item Player is able to attack enemy.
 \item The enemy has a low enough armor rating to where the player's attacks
@@ -198,10 +236,13 @@ are damaging it.
 \item Enemy can be killed.
 \end{enumerate}
 
-Summary: Player attacks enemy with weapon until enemy's hit points are
+\textbf{Summary}:
+
+Player attacks enemy with weapon until enemy's hit points are
 completely depleted.
 
-Steps:
+\textbf{Steps}:
+
 \begin{enumerate}
 \item Player gets close enough to enemy to attack either ranged or melee.
 \item Player depletes enemy's hit points before player's hit points are
@@ -211,17 +252,23 @@ depleted by enemy.
 \end{subsection}
 
 \begin{subsection}{Using Keys and Codes}
-Actor: Player
+\textbf{Actor}:
 
-Preconditions:
+Player
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item A door the player wishes to go through is currently locked.
 \item Player has needed key/code to unlock door in inventory.
 \end{enumerate}
 
-Summary: Player uses found keys or codes to unlock locked doors.
+\textbf{Summary}:
 
-Steps:
+Player uses found keys or codes to unlock locked doors.
+
+\textbf{Steps}:
+
 \begin{enumerate}
 \item Player gets close enough to door to interact with it.
 \item Player presses input to initialize unlocking procedure.
@@ -237,18 +284,24 @@ door unlocks, and key/code is removed from inventory.
 \end{subsection}
 
 \begin{subsection}{Taking Damage}
-Actor: Player
+\textbf{Actor}:
 
-Preconditions:
+Player
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item Player is being attacked by enemy.
 \item Player has a low enough armor rating to where they are able to be
 damaged by current enemy.
 \end{enumerate}
 
-Summary: Player is being attacked and is losing health/HP.
+\textbf{Summary}:
 
-Steps:
+Player is being attacked and is losing health/HP.
+
+\textbf{Steps}:
+
 \begin{enumerate}
 \item Player is attacked by enemy.
 \item Depending on strength of enemy, an amount of damage is done to the
@@ -259,17 +312,23 @@ enemy is subtracted from the player's total remaining health..
 \end{subsection}
 
 \begin{subsection}{Moving Items in Inventory}
-Actor: Player
+\textbf{Actor}:
 
-Preconditions:
+Player
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item Player has an item(s) in inventory they'd like to rearrange.
 \end{enumerate}
 
-Summary: Player can manually rearrange items in inventory for better
+\textbf{Summary}:
+
+Player can manually rearrange items in inventory for better
 organization and quicker use.
 
-Steps:
+\textbf{Steps}:
+
 \begin{enumerate}
 \item Player presses input to open inventory.
 \item Game action is paused while inventory is open.
@@ -288,17 +347,23 @@ with item in occupied slot.
 
 \begin{section}{Tessa Saul}
 \begin{subsection}{Moving through Areas}
-Actor: Player
+\textbf{Actor}:
 
-Preconditions:
+Player
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item The player has the area being moved to unlocked or available to him.
 \end{enumerate}
 
-Summary: The player accepts a prompt moving him to a new dungeon, floor, or
+\textbf{Summary}:
+
+The player accepts a prompt moving him to a new dungeon, floor, or
 back to the lobby.
 
-Steps:
+\textbf{Steps}:
+
 \begin{enumerate}
 \item The player uses an object (door/computer).
 \item Player hits yes to the prompt on whether or not to use it.
@@ -309,17 +374,23 @@ and the player is placed in it.
 \end{subsection}
 
 \begin{subsection}{Selling Items}
-Actor: Player, Shopkeeper
+\textbf{Actor}:
 
-Preconditions:
+Player, Shopkeeper
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item The player has an item that the shopkeeper is willing to buy.
 \item The shopkeeper has sufficient currency for the transaction.
 \end{enumerate}
 
-Summary: Player exchanges an item for currency with a shopkeeper.
+\textbf{Summary}:
 
-Steps: 
+Player exchanges an item for currency with a shopkeeper.
+
+\textbf{Steps}:
+ 
 \begin{enumerate}
 \item Player approaches shopkeeper.
 \item Player engages shop.
@@ -330,17 +401,23 @@ given to player.
 \end{subsection}
 
 \begin{subsection}{Buying Items}
-Actor: Player, Shopkeeper
+\textbf{Actor}:
 
-Preconditions:
+Player, Shopkeeper
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item The shopkeeper has an item that the player is willing to buy.
 \item The player has sufficient currency for the transaction.
 \end{enumerate}
 
-Summary: Player exchanges an currency for item with a shopkeeper.
+\textbf{Summary}:
 
-Steps: 
+Player exchanges an currency for item with a shopkeeper.
+
+\textbf{Steps}:
+ 
 \begin{enumerate}
 \item Player approaches shopkeeper.
 \item Player engages shop.
@@ -351,18 +428,24 @@ shopkeeper.
 \end{subsection}
 
 \begin{subsection}{Picking Up Items}
-Actor: Player
+\textbf{Actor}:
 
-Precondition:
+Player
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item The player has an empty slot big enough for the item in their
 inventory.
 \end{enumerate}
 
-Summary: A player's action transfers an item from the environment into their
+\textbf{Summary}:
+
+A player's action transfers an item from the environment into their
 inventory.
 
-Steps:
+\textbf{Steps}:
+
 \begin{enumerate}
 \item Player approaches item.
 \item Player engages item.
@@ -374,18 +457,24 @@ Steps:
 
 \begin{section}{Lance Wells}
 \begin{subsection}{Die}
-Actor: Player
+\textbf{Actor}:
 
-Preconditions:
+Player
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item The player is actively playing the game and has just taken
 fatal damage.
 \end{enumerate}
 
-Summary: The player has taken fatal damage and now proceeds to die with a
+\textbf{Summary}:
+
+The player has taken fatal damage and now proceeds to die with a
 restart option.
 
-Steps:
+\textbf{Steps}:
+
 \begin{enumerate}
 \item The player takes some form of fatal damage.
 \item The player is then frozen on the spot, unable to interact with any
@@ -397,16 +486,22 @@ proceed.
 \end{subsection}
 
 \begin{subsection}{Leave a Dungeon}
-Actor: Player
+\textbf{Actor}:
 
-Preconditions:
+Player
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item The player currently inside of a dungeon.
 \end{enumerate}
 
-Summary: The player leaves a dungeon through the use of a menu.
+\textbf{Summary}:
 
-Steps:
+The player leaves a dungeon through the use of a menu.
+
+\textbf{Steps}:
+
 \begin{enumerate}
 \item1 The player presses a button that requests to leave the current
 dungeon.
@@ -420,16 +515,22 @@ close.
 \end{subsection}
 
 \begin{subsection}{Use an Item}
-Actor: Player
+\textbf{Actor}:
 
-Preconditions:
+Player
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item The player currently has some usable item.
 \end{enumerate}
 
-Summary: The player actively uses some usable item.
+\textbf{Summary}:
 
-Steps:
+The player actively uses some usable item.
+
+\textbf{Steps}:
+
 \begin{enumerate}
 \item The player either opens their inventory, or currently has a usable
 item equipped in some fashion.
@@ -441,16 +542,22 @@ through some button combination or key press.
 \end{subsection}
 
 \begin{subsection}{Change Current Weapon}
-Actor: Player
+\textbf{Actor}:
 
-Preconditions:
+Player
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item The player currently has two or more selectable weapons.
 \end{enumerate}
 
-Summary: The player indicates a weapon to change and does so.
+\textbf{Summary}:
 
-Steps:
+The player indicates a weapon to change and does so.
+
+\textbf{Steps}:
+
 \begin{enumerate}
 \item The player either opens their inventory or currently has two or more
 ``equipped'' weapons.
@@ -464,16 +571,22 @@ weapon is considered to be active.
 \end{subsection}
 
 \begin{subsection}{Close the Game}
-Actor: Player
+\textbf{Actor}:
 
-Preconditions:
+Player
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item The player has access to the menu that allows for the game to close.
 \end{enumerate}
 
-Summary: The player closes the game via an in-game menu option.
+\textbf{Summary}:
 
-Steps:
+The player closes the game via an in-game menu option.
+
+\textbf{Steps}:
+
 \begin{enumerate}
 \item The player indicates a request to leave via some button press.
 \item A pop-up window appears requesting the player to confirm that they
@@ -484,17 +597,23 @@ and then close entirely.
 \end{subsection}
 
 \begin{subsection}{Select an Item from Inventory}
-Actor: Player
+\textbf{Actor}:
 
-Preconditions:
+Player
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item The player is currently at the main menu.
 \end{enumerate}
 
-Summary: The player selects an option via some button press that reacts
+\textbf{Summary}:
+
+The player selects an option via some button press that reacts
 appropriately.
 
-Steps:
+\textbf{Steps}:
+
 \begin{enumerate}
 \item The player is selects some menu option with a button press.
 \item The menu either then disappears and is replaced with another menu, or
@@ -503,17 +622,23 @@ closes and reacts according to the user's request.
 \end{subsection}
 
 \begin{subsection}{Level Up}
-Actor: Player
+\textbf{Actor}:
 
-Preconditions:
+Player
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item The player has all requirements to achieve an increase in level
 \item The player is currently in the lobby.
 \end{enumerate}
 
-Summary: The player moves (literally) up a level in progress.
+\textbf{Summary}:
 
-Steps:
+The player moves (literally) up a level in progress.
+
+\textbf{Steps}:
+
 \begin{enumerate}
 \item The player is informed through some message that they are now eligible
 for an advancement in their level.
@@ -526,18 +651,24 @@ current level.
 \end{subsection}
 
 \begin{subsection}{Increase Stats}
-Actor: Player
+\textbf{Actor}:
 
-Preconditions:
+Player
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item The player has alterable stats that can be changed through some
 action.
 \end{enumerate}
 
-Summary: The player makes a request for a stat adjustment through some
+\textbf{Summary}:
+
+The player makes a request for a stat adjustment through some
 method and is altered in kind.
 
-Steps:
+\textbf{Steps}:
+
 \begin{enumerate}
 \item The player makes a request to change stats through an item being
 equipped or unequipped or otherwise.
@@ -549,18 +680,24 @@ to mirror the request.
 
 \begin{section}{Zachary Yama}
 \begin{subsection}{Equip and Item}
-Actor: Player
+\textbf{Actor}:
 
-Precondition: 
+Player
+
+\textbf{Preconditions}:
+ 
 \begin{enumerate}
 \item The player has the status to equip the item. 
 \item The item is in their inventory.
 \end{enumerate}
 
-Summary: A player's action transfers an item from their inventory to their
+\textbf{Summary}:
+
+A player's action transfers an item from their inventory to their
 equipment.
 
-Steps:
+\textbf{Steps}:
+
 \begin{enumerate}
 \item Player has the item.
 \item Player selects an equip action.
@@ -574,16 +711,22 @@ player has, ignore/undue the equip action.
 \end{subsection}
 
 \begin{subsection}{Look at Stats}
-Actor: Player
+\textbf{Actor}:
 
-Precondition:
+Player
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item The player selects the status menu icon.
 \end{enumerate}
 
-Summary: Input from the player opens the status menu.
+\textbf{Summary}:
 
-Steps:
+Input from the player opens the status menu.
+
+\textbf{Steps}:
+
 \begin{enumerate}
 \item Player selects stats menu icon.
 \item The status window is opened.
@@ -594,16 +737,22 @@ status point availability.
 \end{subsection}
 
 \begin{subsection}{Look at Map}
-Actor: Player
+\textbf{Actor}:
 
-Precondition:
+Player
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item The player toggles the map menu icon.
 \end{enumerate}
 
-Summary: Input form the player opens the map menu.
+\textbf{Summary}:
 
-Steps:
+Input form the player opens the map menu.
+
+\textbf{Steps}:
+
 \begin{enumerate}
 \item The player selects the map menu icon.
 \item The map menu is opened.
@@ -614,18 +763,24 @@ Steps:
 \end{subsection}
 
 \begin{subsection}{Hit a Monster}
-Actor: Player, Monster
+\textbf{Actor}:
 
-Precondition:
+Player, Monster
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item The player has attacked.
 \item The player's attack hitbox hit a monster.
 \end{enumerate}
 
-Summary: A player has performed the action to attack, and successfully hit
+\textbf{Summary}:
+
+A player has performed the action to attack, and successfully hit
 an enemy.
 
-Steps:
+\textbf{Steps}:
+
 \begin{enumerate}
 \item Calculate active collisions to determine if the enemy was hit.
 \item The damage delt is calculated based on player and monster attributes.
@@ -638,16 +793,22 @@ dead.
 \end{subsection}
 
 \begin{subsection}{Kill a Monster}
-Actor: Player, Monster
+\textbf{Actor}:
 
-Precondition:
+Player, Monster
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item The player has reduced a monster's health to zero.
 \end{enumerate}
 
-Summary: A monsters health has been reduced to zero, and is dead.
+\textbf{Summary}:
 
-Steps:
+A monsters health has been reduced to zero, and is dead.
+
+\textbf{Steps}:
+
 \begin{enumerate}
 \item The monster's hitbox is no longer active.
 \item Any active AI is no longer active.
@@ -662,16 +823,22 @@ are set to applicable.
 \end{subsection}
 
 \begin{subsection}{Level Up}
-Actor: Player
+\textbf{Actor}:
 
-Precondition:
+Player
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item The player has the required experience (Reputation?) to level up.
 \end{enumerate}
 
-Summary: A player has gained enough experience to increase their level. 
+\textbf{Summary}:
 
-Steps:
+A player has gained enough experience to increase their level. 
+
+\textbf{Steps}:
+
 \begin{enumerate}
 \item The experience level is compared to the amount required to level up. 
 \item If the experience level is high enough, the player's level is
@@ -686,16 +853,22 @@ additional experience carryover.
 \end{subsection}
 
 \begin{subsection}{Increase Stats}
-Actor: Player
+\textbf{Actor}:
 
-Precondition:
+Player
+
+\textbf{Preconditions}:
+
 \begin{enumerate}
 \item The player has available status points to spend.
 \end{enumerate}
 
-Summary: A player has unspent stats points and expends them. 
+\textbf{Summary}:
 
-Steps:
+A player has unspent stats points and expends them. 
+
+\textbf{Steps}:
+
 \begin{enumerate}
 \item The player selects a stat to increase.
 \item The amount of points required to increase a stat are calculated.
@@ -704,7 +877,7 @@ deactivated.
 \item If there are enough points to expend, available stats points are
 reduced accordingly.
 \item The stat is increased. 
-\item Steps 1-5 are repeated for every action until all stats points are
+\item Steps 1 to 5 are repeated for every action until all stats points are
 expened.
 \item Any remaining points are saved.
 \end{enumerate}
